@@ -39,5 +39,5 @@ Persist a drawing to and from a text stream. Create an interface for drawing and
 
 Tip:
 -  It will be easier for you to explain your solution with the aid of a UML class diagram when you present.  
-
+-  [JSON for Modern C++](https://github.com/nlohmann/json)  
 ###
