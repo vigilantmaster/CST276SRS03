@@ -6,7 +6,7 @@
 #include <fstream>
 #include "json.hpp"
 using json = nlohmann::json;
-CircleFactory test;
+circle_factory test;
 const bool Circle::registered = ShapeFactoryManager::getInstance().RegisterShape(id, test);
 
 // TODO: Notes:

@@ -6,15 +6,15 @@
 
 #include "json.hpp"   // json manipulation
 using json = nlohmann::json;  // for ease of use
-PolygonFactory polygonfactory;
-const bool Polygon::registered = ShapeFactoryManager::getInstance().RegisterShape(id, polygonfactory);
-Polygon::Polygon()
+polygon_factory polygonfactory;
+const bool polygon::registered = ShapeFactoryManager::getInstance().RegisterShape(id, polygonfactory);
+polygon::polygon()
 = default;
 
-Polygon::~Polygon()
+polygon::~polygon()
 = default;
 
-void Polygon::doDraw() const
+void polygon::doDraw() const
 {
 	std::cout << "      POLYGON     " << std::endl << std::endl;;
 	std::cout << "Start Point: (" << xstart << ","  << ystart << ")" << std::endl;
@@ -22,7 +22,7 @@ void Polygon::doDraw() const
 	std::cout << "Point Three: (" << x2 << "," << y2 << ")" << std::endl;
 	std::cout << "End Point: (" << xstart << "," << ystart << ")\n" << std::endl;
 }
-void Polygon::doSave() const
+void polygon::doSave() const
 {
 	std::ofstream outputStreamToFile("Shapes.json");
 	json jsonObject;
@@ -33,7 +33,7 @@ void Polygon::doSave() const
 	jsonObject["polygon"]["y1"] = y1;
 	jsonObject["polygon"]["y2"] = y2;
 }
-void Polygon::doLoad()
+void polygon::doLoad()
 {
 	std::ifstream inputStreamFromFile("Shapes.json");
 	json jsonObject;

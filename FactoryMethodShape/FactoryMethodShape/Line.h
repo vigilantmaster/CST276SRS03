@@ -11,10 +11,10 @@ private:
 	static const UniqueID id = 123;
 
 private:
-	int xstart;
-	int xend;
-	int ystart;
-	int yend;
+	int xstart{};
+	int xend{};
+	int ystart{};
+	int yend{};
 
 private:
 	static const bool registered; // TODO: initialize

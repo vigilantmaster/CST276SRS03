@@ -7,7 +7,7 @@
 
 
 using namespace std;
-class ShapeComposite : public Shape
+class shape_composite : public Shape
 {
 private:
 	static const UniqueID id = 987;
@@ -16,7 +16,7 @@ private:
 	
 
 public:
-	ShapeComposite();
+	shape_composite();
 	
 protected:
 	vector<Shape*> children; //Child components list.
@@ -38,7 +38,7 @@ public:
 	{
 		children.clear();
 	}
-	virtual ~ShapeComposite()
+	virtual ~shape_composite()
 	= default;
 
 private:
@@ -52,7 +52,7 @@ private:
 	* To perform extensive operations on the Children list like Insert, Search etc.
 	* This is provided just for Ease of use for Composite class developers.
 	*/
-	typedef	vector<ShapeComposite*>::iterator ChildIterator;
+	typedef	vector<shape_composite*>::iterator ChildIterator;
 };
 
 

@@ -8,12 +8,12 @@
 using json = nlohmann::json;  // for ease of use with json
 
 ShapeCompositeFactory shapecompfact;
-const bool ShapeComposite::registered = ShapeFactoryManager::getInstance().RegisterShape(id, shapecompfact);
+const bool shape_composite::registered = ShapeFactoryManager::getInstance().RegisterShape(id, shapecompfact);
 
-ShapeComposite::ShapeComposite()
+shape_composite::shape_composite()
 = default;
 
-void ShapeComposite::AddChild(Shape* child)
+void shape_composite::AddChild(Shape* child)
 {
 	if (child != nullptr)
 	{
@@ -25,7 +25,7 @@ void ShapeComposite::AddChild(Shape* child)
 		cerr << "No Shape Added" << endl;
 	}
 }
-void ShapeComposite::RemoveChild(Shape* child)
+void shape_composite::RemoveChild(Shape* child)
 {
 	auto itr = find(children.begin(), children.end(), child);
 	if (itr != children.end())
@@ -34,7 +34,7 @@ void ShapeComposite::RemoveChild(Shape* child)
 	}
 }
 
-void ShapeComposite::doDraw() const
+void shape_composite::doDraw() const
 {
 	for each(auto shape in children)
 	{
@@ -42,7 +42,7 @@ void ShapeComposite::doDraw() const
 	}
 }
 
-void ShapeComposite::doSave() const
+void shape_composite::doSave() const
 {
 	for each (auto shape in children)
 	{
@@ -50,7 +50,7 @@ void ShapeComposite::doSave() const
 	}	
 }
 
-void ShapeComposite::doLoad()
+void shape_composite::doLoad()
 {
 	std::ifstream inputStreamFromFile("Shapes.json");
 	json jsonObject;

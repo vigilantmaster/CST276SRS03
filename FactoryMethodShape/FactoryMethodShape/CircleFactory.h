@@ -3,11 +3,11 @@
 #include "ShapeFactory.h"
 #include "Circle.h"
 
-class CircleFactory: public ShapeFactory
+class circle_factory: public ShapeFactory
 {
 public:
-	CircleFactory();
-	~CircleFactory();
+	circle_factory();
+	~circle_factory();
 
 private:
 	Circle* doCreateShape() const override;

@@ -9,6 +9,6 @@ public:
 	ShapeCompositeFactory();
 	~ShapeCompositeFactory();
 private:
-	ShapeComposite* doCreateShape() const override;
+	shape_composite* doCreateShape() const override;
 };
 

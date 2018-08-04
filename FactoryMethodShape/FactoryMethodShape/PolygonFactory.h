@@ -3,13 +3,13 @@
 #include "ShapeFactory.h"
 #include "Polygon.h"
 
-class PolygonFactory: public ShapeFactory
+class polygon_factory: public ShapeFactory
 {
 public:
-	PolygonFactory();
-	~PolygonFactory();
+	polygon_factory();
+	~polygon_factory();
 
 private:
-	Polygon* doCreateShape() const override;
+	polygon* doCreateShape() const override;
 };
 

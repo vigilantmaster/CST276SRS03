@@ -9,8 +9,8 @@ ShapeCompositeFactory::ShapeCompositeFactory()
 ShapeCompositeFactory::~ShapeCompositeFactory()
 = default;
 
-ShapeComposite* ShapeCompositeFactory::doCreateShape() const
+shape_composite* ShapeCompositeFactory::doCreateShape() const
 {
-	auto* const result = new ShapeComposite();
+	auto* const result = new shape_composite();
 	return result;
 }

@@ -2,14 +2,14 @@
 #include "CircleFactory.h"
 
 
-CircleFactory::CircleFactory()
+circle_factory::circle_factory()
 = default;
 
 
-CircleFactory::~CircleFactory()
+circle_factory::~circle_factory()
 = default;
 
-Circle * CircleFactory::doCreateShape() const
+Circle * circle_factory::doCreateShape() const
 {
 	auto* const result = new Circle();
 	return result;

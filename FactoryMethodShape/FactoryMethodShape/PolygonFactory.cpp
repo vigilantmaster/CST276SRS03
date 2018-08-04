@@ -2,14 +2,14 @@
 #include "PolygonFactory.h"
 
 
-PolygonFactory::PolygonFactory()
+polygon_factory::polygon_factory()
 = default;
 
-PolygonFactory::~PolygonFactory()
+polygon_factory::~polygon_factory()
 = default;
 
-Polygon* PolygonFactory::doCreateShape() const
+polygon* polygon_factory::doCreateShape() const
 {
-	auto* const result = new Polygon();
+	auto* const result = new polygon();
 	return result;
 }
