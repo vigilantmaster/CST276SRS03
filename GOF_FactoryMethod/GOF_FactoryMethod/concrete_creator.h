@@ -1,11 +1,15 @@
 #pragma once
 #include "Creator.h"
-class concrete_creator :
-	public creator
+#include "IProduct.h"
+class concrete_creator : public creator // overrides the factory method (create_product) to return an instance of ConcreteProduct.
 {
 public:
-	//TODO: create special memeber functions
 	concrete_creator();
-	~concrete_creator();
+	//TODO: create special memeber functions
+	virtual ~concrete_creator();
+protected:
+	i_product* create_product() override;
 };
+
+
 
