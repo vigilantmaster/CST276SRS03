@@ -9,8 +9,8 @@ circle_factory::circle_factory()
 circle_factory::~circle_factory()
 = default;
 
-Circle * circle_factory::doCreateShape() const
+circle * circle_factory::doCreateShape() const
 {
-	auto* const result = new Circle();
+	auto* const result = new circle();
 	return result;
 }

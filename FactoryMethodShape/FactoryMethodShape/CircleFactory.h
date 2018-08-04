@@ -10,6 +10,6 @@ public:
 	~circle_factory();
 
 private:
-	Circle* doCreateShape() const override;
+	circle* doCreateShape() const override;
 };
 

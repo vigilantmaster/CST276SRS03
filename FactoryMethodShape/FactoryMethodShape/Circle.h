@@ -2,7 +2,7 @@
 
 #include "Shape.h"
 
-class Circle : public Shape
+class circle : public Shape
 {
 private:
 	static const UniqueID id = 456;
@@ -16,8 +16,8 @@ private:
 	int ycenter;
 		
 public:
-	Circle();
-	~Circle();
+	circle();
+	~circle();
 
 private:
 	void doDraw() const override;
