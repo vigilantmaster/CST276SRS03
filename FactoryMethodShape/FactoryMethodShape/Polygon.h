@@ -7,14 +7,14 @@ private:
 	static const UniqueID id = 789;
 
 private:
-	static const bool registered; // TODO: initialize
+	static const bool registered; 
 
-private:
-	int xstart{}, x1{}, x2{}, ystart{}, y1{}, y2{};
+
 
 public:
 	polygon();
 	~polygon();
+	void setPolygon(int specialId_, int xstart_, int x1_, int x2_, int ystart_, int y1_, int y2_);
 
 private:
 	void doDraw() const override;

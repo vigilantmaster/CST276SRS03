@@ -15,15 +15,17 @@ private:
 	int xend{};
 	int ystart{};
 	int yend{};
+	int specialId{};
 
 private:
-	static const bool registered; // TODO: initialize
+	static const bool registered; 
 
 public:
 	Line();
 	~Line();
 
 public:
+	void setLine(int specialId_, int xstart_, int xend_, int ystart_, int yend_);
 
 private:
 	void doDraw() const override;

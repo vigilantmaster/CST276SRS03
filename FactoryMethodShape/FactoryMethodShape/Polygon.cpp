@@ -14,6 +14,17 @@ polygon::polygon()
 polygon::~polygon()
 = default;
 
+void polygon::setPolygon(int specialId_, int xstart_, int x1_, int x2_, int ystart_, int y1_, int y2_)
+{
+	specialId = specialId_;
+	xstart = xstart_;
+	x1 = x1_;
+	x2 = x2_;
+	ystart = ystart_;
+	y1 = y1_;
+	y2 = y2_;
+}
+
 void polygon::doDraw() const
 {
 	std::cout << "      POLYGON     " << std::endl << std::endl;;
@@ -26,6 +37,7 @@ void polygon::doSave() const
 {
 	std::ofstream outputStreamToFile("Shapes.json");
 	json jsonObject;
+	jsonObject["polygon"]["specialId"] = specialId;
 	jsonObject["polygon"]["xstart"] = xstart;
 	jsonObject["polygon"]["x1"] = x1;
 	jsonObject["polygon"]["x2"] = x2;
@@ -38,6 +50,7 @@ void polygon::doLoad()
 	std::ifstream inputStreamFromFile("Shapes.json");
 	json jsonObject;
 	inputStreamFromFile >> jsonObject;
+	specialId = jsonObject["polygon"]["specialId"].get<int>();
 	xstart = jsonObject["polygon"]["xstart"].get<int>();
 	x1 = jsonObject["polygon"]["x1"].get<int>();
 	x2 = jsonObject["polygon"]["x2"].get<int>();

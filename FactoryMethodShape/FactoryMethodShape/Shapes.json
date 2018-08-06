@@ -1,17 +1,20 @@
 {
-	"circle": {
+	"Circle": {
+		"specialId": 12432453,
 		"radius": 5,
 		"xcenter": 0,
 		"ycenter": 0
 	},
 
 	"line": {
+		"specialId": 124323553,
 		"xstart": 0,
 		"ystart": 0,
 		"xend": 1,
 		"yend": 1
 	},
 	"polygon": {
+		"specialId": 93902,
 		"xstart": 0,
 		"ystart": 0,
 		"x1": 1,

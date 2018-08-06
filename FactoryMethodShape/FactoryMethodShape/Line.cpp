@@ -12,6 +12,15 @@ Line::Line()
 Line::~Line()
 = default;
 
+void Line::setLine(int specialId_, int xstart_, int xend_, int ystart_, int yend_)
+{
+	specialId = specialId_;
+	xstart = xstart_;
+	xend = xend_;
+	ystart = ystart_;
+	yend = yend_;
+}
+
 void Line::doDraw() const
 {
 	std::cout << "    Line  " << std::endl;
@@ -23,6 +32,7 @@ void Line::doSave() const
 {
 	std::ofstream outputStreamToFile("Shapes.json");	
 	json jsonObject;
+	jsonObject["line"]["specialId"] = specialId;
 	jsonObject["line"]["xstart"] = xstart;
 	jsonObject["line"]["xend"] = xend;
 	jsonObject["line"]["ystart"] = ystart;
@@ -34,6 +44,7 @@ void Line::doLoad()
 	std::ifstream inputStreamFromFile("Shapes.json");
 	json jsonObject;
 	inputStreamFromFile >> jsonObject;
+	specialId = jsonObject["line"]["specialId"].get<int>();
 	xstart = jsonObject["line"]["xstart"].get<int>();
 	xend = jsonObject["line"]["xend"].get<int>();
 	ystart = jsonObject["line"]["ystart"].get<int>();

@@ -9,7 +9,7 @@ using json = nlohmann::json;
 circle_factory test;
 const bool circle::registered = ShapeFactoryManager::getInstance().RegisterShape(id, test);
 
-// TODO: Notes:
+// Notes:
 // You will need to register all shapes, not just Circle. 
 // I have not tested the above technique, you may run into trouble.
 
@@ -18,13 +18,22 @@ circle::circle()
 	std::ifstream inputStreamFromFile("Shapes.json");
 	json jsonObject;
 	inputStreamFromFile >> jsonObject;
-	radius = jsonObject["circle"]["radius"].get<int>();
-	xcenter = jsonObject["circle"]["xcenter"].get<int>();
-	ycenter = jsonObject["circle"]["ycenter"].get<int>();
+	specialId = jsonObject["Circle"]["specialId"].get<int>();
+	radius = jsonObject["Circle"]["radius"].get<int>();
+	xcenter = jsonObject["Circle"]["xcenter"].get<int>();
+	ycenter = jsonObject["Circle"]["ycenter"].get<int>();
 }
 
 circle::~circle()
 = default;
+
+void circle::setCircle(int specialId_, int radius_, int xcenter_, int ycenter_)
+{
+	specialId = specialId_;
+	radius = radius_;
+	xcenter = xcenter_;
+	ycenter = ycenter_;
+}
 
 void circle::doDraw() const
 {
@@ -35,12 +44,26 @@ void circle::doDraw() const
 
 void circle::doSave() const
 {
-	std::cout << id << std::endl; // TODO: and circle data
+	std::ofstream outpustStreamToFile("Shapes.Json");
+	json toFile;
+	toFile["Circle"]["specialId"] =  specialId ;
+	toFile["Circle"]["radius"] = radius ;
+	toFile["Circle"]["xcenter"] = xcenter;
+	toFile["Circle"]["ycenter"] = ycenter;
+	toFile >> outpustStreamToFile;
+	outpustStreamToFile.close();
 }
 
 void circle::doLoad()
 {
-	// std::cin >> data; // TODO: Load the circle data from json file
+	std::ifstream inputStreamFromFile("Shapes.json");
+	json jsonObject;
+	inputStreamFromFile >> jsonObject;
+	specialId = jsonObject["Circle"]["specialId"].get<int>();
+	radius = jsonObject["Circle"]["radius"].get<int>();
+	xcenter = jsonObject["Circle"]["xcenter"].get<int>();
+	ycenter = jsonObject["Circle"]["ycenter"].get<int>();
+	inputStreamFromFile.close();
 }
 
 

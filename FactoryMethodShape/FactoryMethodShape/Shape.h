@@ -2,6 +2,8 @@
 
 class Shape
 {
+protected:
+	int specialId{}, xstart{}, x1{}, x2{}, ystart{}, y1{}, y2{};
 	
 public:
 	using UniqueID = unsigned long; // See: https://en.wikipedia.org/wiki/Universally_unique_identifier

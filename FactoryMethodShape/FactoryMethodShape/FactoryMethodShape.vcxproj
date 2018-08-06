@@ -154,6 +154,8 @@
     <ClInclude Include="LineFactory.h" />
     <ClInclude Include="Polygon.h" />
     <ClInclude Include="PolygonFactory.h" />
+    <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="RectangleFactory.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="ShapeComposite.h" />
@@ -172,6 +174,8 @@
     <ClCompile Include="LineFactory.cpp" />
     <ClCompile Include="Polygon.cpp" />
     <ClCompile Include="PolygonFactory.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="RectangleFactory.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="ShapeComposite.cpp" />
     <ClCompile Include="ShapeCompositeFactory.cpp" />

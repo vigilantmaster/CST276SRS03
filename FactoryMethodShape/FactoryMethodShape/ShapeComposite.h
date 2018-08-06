@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "Shape.h"
+#include "Rectangle.h"
 
 
 // Composite Pattern Taken from GROUP OF FOUR Design Patterns
@@ -13,7 +14,8 @@ private:
 	static const UniqueID id = 987;
 private:
 	static const bool registered;
-	
+	int canvasWidth;
+	int canvasHeight;
 
 public:
 	shape_composite();
@@ -42,9 +44,12 @@ public:
 	= default;
 
 private:
+	void drawCanvas() const;
 	void doDraw() const override;
 	void doSave() const override;
 	void doLoad() override;
+	Rectangle canvasRectangle;
+	//I decided not to make another class that only had this canvas as something different
 
 private:
 	/*
