@@ -21,7 +21,6 @@ void shape_composite::AddChild(Shape* child)
 	if (child != nullptr)
 	{
 		children.push_back(child);
-		//cout << "Shape Added" << endl;
 	}
 	else
 	{
@@ -71,7 +70,6 @@ void shape_composite::doLoad()
 	for (json::iterator it = jsonObject["ShapeComposite"].begin(); it != jsonObject["ShapeComposite"].end(); ++it)
 	{
 		// ShapeFactoryManager is a Singleton:
-		//std::cout << it.key() << " : " << it.value() << "\n";
 		const ShapeFactoryManager& shapeFactoryManager = ShapeFactoryManager::getInstance();
 		
 		const auto shape = static_cast<Shape::UniqueID>(it.value());
