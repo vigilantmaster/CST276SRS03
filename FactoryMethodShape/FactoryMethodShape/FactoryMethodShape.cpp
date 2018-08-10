@@ -26,12 +26,15 @@ int main()
 	test.Draw();
 	//removing circle
 	test.RemoveChild(&testCircle);
-	std::cout << "Test without added circle" << std::endl;
+	std::cout << "---------------------Test without added circle" << std::endl;
 	test.Draw();
 	//get a polygon from the singleton
 	ShapeFactory * polygon_factory_ = ShapeFactoryManager::getInstance().createFactory(789) ;
 	auto polygon = polygon_factory_->CreateShape();
+	// probably make polygon different I will just load one from the json document
+	polygon->Load();
 	test.AddChild(polygon);
+	std::cout << "---------------------Test with polygon added from json" << std::endl;
 	test.Draw();
     return 0;
 }

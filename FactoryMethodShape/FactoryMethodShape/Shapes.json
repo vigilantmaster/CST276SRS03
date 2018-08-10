@@ -15,12 +15,12 @@
 	},
 	"polygon": {
 		"specialId": 93902,
-		"xstart": 0,
-		"ystart": 0,
-		"x1": 1,
+		"xstart": 9,
+		"ystart": 6,
+		"x1": 8,
 		"x2": 1,
 		"y1": 0,
-		"y2": 1
+		"y2": 3
 	},
 	"ShapeComposite": {
 		"firstShape": 123,
