@@ -16,10 +16,11 @@ int main()
 {
 	shape_composite test;
 	//load from Shapes.json
-	test.Load();
+	//test.Load();
 	//create circle
 	circle testCircle;
 	testCircle.setCircle(111111, 9, 4, 3);
+	testCircle.Save();
 	//add circle to compsite
 	test.AddChild(&testCircle);
 	//show the circle is there with previously loaded
@@ -32,10 +33,22 @@ int main()
 	ShapeFactory * polygon_factory_ = ShapeFactoryManager::getInstance().createFactory(789) ;
 	auto polygon = polygon_factory_->CreateShape();
 	// probably make polygon different I will just load one from the json document
+	polygon->Save();
 	polygon->Load();
 	test.AddChild(polygon);
 	std::cout << "---------------------Test with polygon added from json" << std::endl;
 	test.Draw();
+
+	test.Save();
+
+	shape_composite test2;
+	//test2.Load();
+	test2.Draw();
+	test2.RemoveChild(polygon);
+	test2.Save();
+	
+
+
     return 0;
 }
 

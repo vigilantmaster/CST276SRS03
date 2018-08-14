@@ -1,8 +1,5 @@
 #pragma once
-// https://github.com/nlohmann/json  Json code and examples taken from here
-#include "json.hpp"
-// for convenience
-using json = nlohmann::json;
+
 #include "Shape.h"
 
 class Line : public Shape
@@ -26,10 +23,14 @@ public:
 
 public:
 	void setLine(int specialId_, int xstart_, int xend_, int ystart_, int yend_);
+	json to_json() override;
 
 private:
 	void doDraw() const override;
 	void doSave() const override;
 	void doLoad() override;
+
+	Shape* toShape(json* rhs) override;
+	void doLoad(json object) override;
 };
 

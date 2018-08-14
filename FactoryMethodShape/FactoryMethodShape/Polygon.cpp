@@ -35,26 +35,62 @@ void polygon::doDraw() const
 }
 void polygon::doSave() const
 {
+	const std::string stringid{ std::to_string(id) };
 	std::ofstream outputStreamToFile("Shapes.json");
 	json jsonObject;
-	jsonObject["polygon"]["specialId"] = specialId;
-	jsonObject["polygon"]["xstart"] = xstart;
-	jsonObject["polygon"]["x1"] = x1;
-	jsonObject["polygon"]["x2"] = x2;
-	jsonObject["polygon"]["ystart"] = ystart;
-	jsonObject["polygon"]["y1"] = y1;
-	jsonObject["polygon"]["y2"] = y2;
+	jsonObject[stringid]["id"] = id;
+	jsonObject[stringid]["specialId"] = specialId;
+	jsonObject[stringid]["xstart"] = xstart;
+	jsonObject[stringid]["x1"] = x1;
+	jsonObject[stringid]["x2"] = x2;
+	jsonObject[stringid]["ystart"] = ystart;
+	jsonObject[stringid]["y1"] = y1;
+	jsonObject[stringid]["y2"] = y2;
+	jsonObject >> outputStreamToFile;
 }
 void polygon::doLoad()
 {
+	const std::string stringid{ std::to_string(id) };
 	std::ifstream inputStreamFromFile("Shapes.json");
 	json jsonObject;
 	inputStreamFromFile >> jsonObject;
-	specialId = jsonObject["polygon"]["specialId"].get<int>();
-	xstart = jsonObject["polygon"]["xstart"].get<int>();
-	x1 = jsonObject["polygon"]["x1"].get<int>();
-	x2 = jsonObject["polygon"]["x2"].get<int>();
-	ystart = jsonObject["polygon"]["ystart"].get<int>();
-	y1 = jsonObject["polygon"]["y1"].get<int>();
-	y2 = jsonObject["polygon"]["y2"].get<int>();
+	specialId = jsonObject[stringid]["specialId"].get<int>();
+	xstart = jsonObject[stringid]["xstart"].get<int>();
+	x1 = jsonObject[stringid]["x1"].get<int>();
+	x2 = jsonObject[stringid]["x2"].get<int>();
+	ystart = jsonObject[stringid]["ystart"].get<int>();
+	y1 = jsonObject[stringid]["y1"].get<int>();
+	y2 = jsonObject[stringid]["y2"].get<int>();
+}
+
+Shape* polygon::toShape(json* rhs)
+{
+	const std::string stringid{ std::to_string(id) };
+	specialId = (*rhs)[stringid]["specialId"].get<int>();
+	xstart = (*rhs)[stringid]["xstart"].get<int>();
+	x1 = (*rhs)[stringid]["x1"].get<int>();
+	x2 = (*rhs)[stringid]["x2"].get<int>();
+	ystart = (*rhs)[stringid]["ystart"].get<int>();
+	y1 = (*rhs)[stringid]["y1"].get<int>();
+	y2 = (*rhs)[stringid]["y2"].get<int>();
+	return this;
+}
+
+void polygon::doLoad(json object)
+{
+	*this->toShape(&object);
+}
+
+json polygon::to_json()
+{
+	const std::string stringid{ std::to_string(id) };
+	json jsonObject;
+	jsonObject[stringid]["specialId"] = specialId;
+	jsonObject[stringid]["xstart"] = xstart;
+	jsonObject[stringid]["x1"] = x1;
+	jsonObject[stringid]["x2"] = x2;
+	jsonObject[stringid]["ystart"] = ystart;
+	jsonObject[stringid]["y1"] = y1;
+	jsonObject[stringid]["y2"] = y2;
+	return jsonObject;
 }

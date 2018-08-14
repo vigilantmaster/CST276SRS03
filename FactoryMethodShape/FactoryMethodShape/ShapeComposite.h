@@ -2,6 +2,7 @@
 #include <vector>
 #include "Shape.h"
 #include "Rectangle.h"
+#include <list>
 
 
 // Composite Pattern Taken from GROUP OF FOUR Design Patterns
@@ -21,8 +22,9 @@ public:
 	shape_composite();
 	
 protected:
-	vector<Shape*> children; //Child components list.
+	list<Shape*> children; //Child components list.
 public:
+	list<json> to_jsonList() const;
 	/*
 	* Add a Component to the child list.
 	* Check to avoid duplication of same child in the list.
@@ -40,14 +42,17 @@ public:
 	{
 		children.clear();
 	}
-	virtual ~shape_composite()
-	= default;
+	virtual ~shape_composite();
 
 private:
 	void drawCanvas() const;
 	void doDraw() const override;
 	void doSave() const override;
 	void doLoad() override;
+
+	json to_json() override;
+	Shape* toShape(json* rhs) override;
+	void doLoad(json object) override;
 	Rectangle canvasRectangle;
 	//I decided not to make another class that only had this canvas as something different
 
